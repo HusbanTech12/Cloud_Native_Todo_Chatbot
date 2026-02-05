@@ -1,0 +1,4 @@
+#!/bin/bash
+# Mock kubectl-ai script for demonstration purposes
+echo "kubectl-ai: AI-assisted kubectl commands (mock implementation)"
+echo "Command received: $@"

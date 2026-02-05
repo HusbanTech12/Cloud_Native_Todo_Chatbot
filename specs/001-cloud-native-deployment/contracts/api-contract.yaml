@@ -1,0 +1,212 @@
+# API Contract: Todo Chatbot Backend Service
+# Generated as part of Cloud-Native Todo Chatbot - Phase IV
+# Date: 2026-02-06
+
+openapi: 3.0.0
+info:
+  title: Todo Chatbot Backend API
+  description: API for the Todo Chatbot application backend service
+  version: 1.0.0
+  contact:
+    name: Todo Chatbot Team
+
+servers:
+  - url: http://todo-backend:8000
+    description: Internal Kubernetes service for Todo backend
+
+paths:
+  /api/todos:
+    get:
+      summary: Get all todos for authenticated user
+      description: Retrieve a list of todos belonging to the authenticated user
+      responses:
+        '200':
+          description: List of todos retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Todo'
+        '401':
+          description: Unauthorized - Invalid or missing JWT token
+        '403':
+          description: Forbidden - User attempting to access others' todos
+      security:
+        - bearerAuth: []
+
+    post:
+      summary: Create a new todo
+      description: Create a new todo item for the authenticated user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoCreate'
+      responses:
+        '201':
+          description: Todo created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '400':
+          description: Bad request - Invalid input
+        '401':
+          description: Unauthorized - Invalid or missing JWT token
+      security:
+        - bearerAuth: []
+
+  /api/todos/{id}:
+    get:
+      summary: Get a specific todo
+      description: Retrieve a specific todo by ID for the authenticated user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Todo retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '401':
+          description: Unauthorized - Invalid or missing JWT token
+        '403':
+          description: Forbidden - User attempting to access others' todo
+        '404':
+          description: Todo not found
+      security:
+        - bearerAuth: []
+
+    put:
+      summary: Update a specific todo
+      description: Update a specific todo item for the authenticated user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoUpdate'
+      responses:
+        '200':
+          description: Todo updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Todo'
+        '400':
+          description: Bad request - Invalid input
+        '401':
+          description: Unauthorized - Invalid or missing JWT token
+        '403':
+          description: Forbidden - User attempting to access others' todo
+        '404':
+          description: Todo not found
+      security:
+        - bearerAuth: []
+
+    delete:
+      summary: Delete a specific todo
+      description: Delete a specific todo item for the authenticated user
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Todo deleted successfully
+        '401':
+          description: Unauthorized - Invalid or missing JWT token
+        '403':
+          description: Forbidden - User attempting to access others' todo
+        '404':
+          description: Todo not found
+      security:
+        - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Todo:
+      type: object
+      required:
+        - id
+        - user_id
+        - title
+        - completed
+        - created_at
+        - updated_at
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the todo
+        user_id:
+          type: string
+          description: ID of the user who owns this todo
+        title:
+          type: string
+          description: Title of the todo
+        description:
+          type: string
+          description: Optional description of the todo
+        completed:
+          type: boolean
+          description: Whether the todo is completed
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the todo was created
+        updated_at:
+          type: string
+          format: date-time
+          description: Timestamp when the todo was last updated
+
+    TodoCreate:
+      type: object
+      required:
+        - title
+      properties:
+        title:
+          type: string
+          description: Title of the todo
+        description:
+          type: string
+          description: Optional description of the todo
+        completed:
+          type: boolean
+          description: Whether the todo is completed (defaults to false)
+
+    TodoUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+          description: Updated title of the todo
+        description:
+          type: string
+          description: Updated description of the todo
+        completed:
+          type: boolean
+          description: Updated completion status
+
+security:
+  - bearerAuth: []

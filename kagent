@@ -1,0 +1,4 @@
+#!/bin/bash
+# Mock kagent script for demonstration purposes
+echo "kagent: AI-powered Kubernetes agent (mock implementation)"
+echo "Command received: $@"

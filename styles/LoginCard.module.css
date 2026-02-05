@@ -1,0 +1,447 @@
+/* Login Card Styles */
+.loginCard {
+  width: 100%;
+  animation: slideIn 0.6s ease-out;
+}
+
+.cardHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.headerIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.2px;
+}
+
+.cardSubtitle {
+  font-size: 1rem;
+  color: #718096;
+  margin: 0;
+  font-weight: 400;
+}
+
+.loginForm {
+  width: 100%;
+}
+
+.errorBanner {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+  border: 1px solid #feb2b2;
+  animation: shake 0.5s ease-in-out;
+}
+
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4a5568;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 52px 14px 16px; /* Extra padding on right for the password toggle button */
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #2d3748;
+  background: white;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input:hover {
+  border-color: #cbd5e0;
+}
+
+.inputError {
+  border-color: #fc8181 !important;
+  background: #fff5f5;
+}
+
+.passwordContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.passwordToggle:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.passwordToggle:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 4px;
+  accent-color: #667eea;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.checkboxLabel {
+  font-size: 0.875rem;
+  color: #4a5568;
+  cursor: pointer;
+  user-select: none;
+}
+
+.forgotPassword {
+  font-size: 0.875rem;
+  color: #667eea;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+.forgotPassword:hover {
+  color: #5a67d8;
+  text-decoration: underline;
+}
+
+.forgotPassword:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.submitButton:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.loading {
+  position: relative;
+}
+
+.loadingSpinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+.socialLogin {
+  margin: 32px 0;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dividerText {
+  padding: 0 16px;
+  font-size: 0.875rem;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.socialButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.socialButton {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  background: white;
+  color: #2d3748;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.socialButton:hover {
+  border-color: #cbd5e0;
+  background: #f7fafc;
+  transform: translateY(-1px);
+}
+
+.socialButton:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.googleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #db4437;
+  margin-right: 6px;
+}
+
+.githubIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  margin-right: 6px;
+}
+
+.signupPrompt {
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.signupPrompt p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.signupLink {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.signupLink:hover {
+  color: #5a67d8;
+  text-decoration: underline;
+}
+
+.signupLink:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.errorMessage {
+  display: block;
+  color: #e53e3e;
+  font-size: 0.75rem;
+  margin-top: 4px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .formFooter {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .socialButtons {
+    flex-direction: column;
+  }
+
+  .socialButton {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardTitle {
+    font-size: 1.5rem;
+  }
+
+  .input,
+  .submitButton {
+    padding: 12px 16px;
+  }
+
+  .socialButton {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .input {
+    border-width: 3px;
+  }
+
+  .submitButton {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .submitButton {
+    transform: none !important;
+  }
+}
