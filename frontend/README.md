@@ -35,6 +35,10 @@ npm install
 
 2. Set up environment variables:
 ```bash
+# Copy the example environment file
+cp .env.example .env.local
+
+# Edit .env.local with your configuration
 NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
 BETTER_AUTH_SECRET=your-secret-key

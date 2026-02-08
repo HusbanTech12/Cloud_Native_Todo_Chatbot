@@ -2,8 +2,8 @@
 const nextConfig = {
   env: {
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000',
-    NEXT_PUBLIC_BETTER_AUTH_URL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL || 'http://localhost:8000',
-    BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET || 'dev-secret-key',
+    NEXT_PUBLIC_BETTER_AUTH_URL: process.env.NEXT_PUBLIC_BETTER_AUTH_URL || 'http://localhost:3000',
+    BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
   },
 }
 

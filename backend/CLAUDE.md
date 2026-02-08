@@ -19,8 +19,11 @@ This is the backend API for the Todo application. It provides REST endpoints for
 - `config.py`: Configuration management
 
 ## Environment Variables
-- `DATABASE_URL`: PostgreSQL connection string
+- `DATABASE_URL`: PostgreSQL connection string (e.g., postgresql://user:pass@host:port/database)
 - `BETTER_AUTH_SECRET`: Secret key for verifying JWT tokens from Better Auth
+- `BETTER_AUTH_URL`: URL of the authentication service (usually http://localhost:3000)
+- `ALGORITHM`: Algorithm for JWT encoding (default: HS256)
+- `ACCESS_TOKEN_EXPIRE_MINUTES`: Token expiration time in minutes (default: 30)
 
 ## API Endpoints
 - `GET /api/{user_id}/tasks`: Retrieve user's tasks

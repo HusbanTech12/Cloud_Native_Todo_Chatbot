@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from routes.tasks import router as task_router
 from routes.auth import router as auth_router
 from fastapi.middleware.cors import CORSMiddleware
+from config import settings
 
 # Load environment variables
 load_dotenv()
@@ -16,7 +17,11 @@ app = FastAPI(
 # Add CORS middleware to allow requests from frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],  # Allow Next.js dev server
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        settings.BETTER_AUTH_URL or "http://localhost:3000"  # Allow requests from the auth URL specified in environment
+    ],
     allow_credentials=True,
     allow_methods=["*"],  # Allow all methods (GET, POST, PUT, DELETE, etc.)
     allow_headers=["*"],  # Allow all headers
